@@ -14,16 +14,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        requestSmsPermission()
+        requestSmsPermissions()
     }
 
-    fun requestSmsPermission() {
-        val permission: String = Manifest.permission.RECEIVE_SMS
-        val grant = ContextCompat.checkSelfPermission(this, permission)
-        if (grant != PackageManager.PERMISSION_GRANTED) {
-            val permissionList = arrayOfNulls<String>(1)
-            permissionList[0] = permission
-            ActivityCompat.requestPermissions(this, permissionList, 1)
-        }
+    private fun requestSmsPermissions() {
+        val permissionList = arrayOf(
+            Manifest.permission.READ_SMS,
+            Manifest.permission.RECEIVE_SMS,
+            Manifest.permission.SEND_SMS
+        )
+        ActivityCompat.requestPermissions(this, permissionList, 1)
     }
 }
