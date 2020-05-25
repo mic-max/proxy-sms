@@ -1,4 +1,4 @@
-# proxy-sms
+# Proxy SMS
 Proxy which transforms SMS messages to HTTP requests
 
 ## SMS Limit Workaround
